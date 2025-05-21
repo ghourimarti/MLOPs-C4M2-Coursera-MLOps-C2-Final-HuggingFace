@@ -1,6 +1,9 @@
+env:
+	py -m venv .huggingface
+	source .huggingface/Scripts/activate
 install:
-	pip install --upgrade pip &&\
-		pip install -r requirements.txt
+	py -m pip install --upgrade pip
+	pip install -r requirements.txt
 
 test:
 	python -m pytest -vv --cov=main --cov=mylib test_*.py
@@ -20,3 +23,8 @@ deploy:
 	#deploy goes here
 		
 all: install lint test format deploy
+
+
+
+
+
